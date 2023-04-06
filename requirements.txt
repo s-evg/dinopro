@@ -1,0 +1,9 @@
+altgraph==0.17.3
+asgiref==3.6.0
+Django==4.2
+Nuitka==1.5.5
+ordered-set==4.1.0
+pyinstaller==5.9.0
+pyinstaller-hooks-contrib==2023.1
+sqlparse==0.4.3
+zstandard==0.20.0

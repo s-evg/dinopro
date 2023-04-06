@@ -1,0 +1,59 @@
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Пазл</title>
+    <link href="{% static 'puzzle/css/style.css' %}" rel="stylesheet" />
+  </head>
+
+  <body onload="main()">
+    <canvas id="myCanvas"></canvas>
+    <canvas id="helperCanvas" style="display: none"></canvas>
+    <div id="menuItems" class="menu">
+      <div id="menu">
+        <div id="controls">
+          <img src="{% static 'puzzle/images/puzzle/title.png' %}" style="width: 90%" />
+          <br />
+          <br />
+          Сложность:
+          <select id="difficulty" onchange="setDifficulty()">
+            <option value="easy">просто</option>
+            <option value="medium">средне</option>
+            <option value="hard">сложно</option>
+            <option value="insane">невозможно</option>
+          </select>
+          <br />
+          <br />
+          <button onclick="restart()">играть</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="endScreen" class="menu" style="display: none">
+      <img src="{% static 'puzzle/images/puzzle/title.png' %}" style="width: 90%" />
+      <br />
+      <br />
+
+      <div id="scoreValue"></div>
+      <!-- <input type="text" id="name" placeholder="твоё имя"></input> -->
+      <!-- <button onclick="saveScore()" id="saveBtn">сохранить</button> -->
+      <br />
+      <br />
+      <!-- <button onclick="showScores()">результаты</button> -->
+      <button onclick="showMenu()">новая игра</button>
+    </div>
+
+    <div id="scoresScreen" class="menu" style="display: none">
+      <img src="{% static 'puzzle/images/puzzle/title.png' %}" style="width: 90%" />
+      <br />
+      <br />
+
+      <div id="scoresContainer"></div>
+      <br />
+      <button onclick="closeScores()">назад</button>
+    </div>
+
+    <div id="time"></div>
+    <script src="{% static 'puzzle/js/script.js' %}"></script>
+  </body>
+</html>

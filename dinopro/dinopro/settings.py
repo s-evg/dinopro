@@ -20,17 +20,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-850ov421#0@!-rs6-nh(p4-md5fe(1!@6)ln0k52zmkm)9$!&^'
+SECRET_KEY = 'django-insecure-6@6_=*er^f+ui%kc8tf8x2h@l@$tyt$^de3^8pf7nsxw!!-6y_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+from .toolsapp import generate_allowed_hosts
 
+
+LOCAL_HOSTS = ['127.0.0.1']
+LOCAL_IP_ADDRESS = generate_allowed_hosts()
+
+ALLOWED_HOSTS = LOCAL_HOSTS + LOCAL_IP_ADDRESS
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+EXTERNAL_APPS = []
+
+APPS = [
+    'puzzle',
+]
+
+INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -116,6 +129,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

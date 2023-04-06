@@ -1,0 +1,16 @@
+--output-dir=./build
+--recurse-all
+--follow-imports
+--lto
+--enable-plugin=pylint-warnings
+--show-memory
+--standalone
+--plugin-enable=django
+--include-package=puzzle
+--include-package=django.core.management.commands.runserver
+--run
+--python-flag=-m
+--python-flag=runserver
+--python-flag=0.0.0.0:8000 manage.py
+
+pyinstaller manage.py --onefile --name=my_project --add-data="myapp/templates:myapp/templates" --add-data="myapp/static:myapp/static"
