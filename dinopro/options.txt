@@ -14,3 +14,11 @@
 --python-flag=0.0.0.0:8000 manage.py
 
 pyinstaller manage.py --onefile --name=my_project --add-data="myapp/templates:myapp/templates" --add-data="myapp/static:myapp/static"
+
+pyinstaller --name=dinopro --onedir --add-data="puzzle:puzzle" --add-data="static:static" manage.py
+
+pyinstaller --name=dinopro --onedir --add-data="puzzle:puzzle" --add-data="static:static" --hidden-import=gunicorn dinopro/wsgi.py
+pyinstaller --name=dinopro --onedir --add-data="puzzle:puzzle" --add-data="static:static" --hidden-import=whitenoise dinopro/wsgi.py
+
+pyinstaller --name=dinopro --onedir --add-data="puzzle:puzzle" --add-data="static:static" --hidden-import=gunicorn --hidden-import=django.contrib.staticfiles manage.py
+

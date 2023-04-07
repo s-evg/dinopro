@@ -74,7 +74,7 @@ function setDifficulty() {
       initializePieces(10, 10);
       break;
     case 'insane':
-      initializePieces(40, 25);
+      initializePieces(20, 20);
       break;
   }
 }

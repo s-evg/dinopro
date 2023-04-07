@@ -1,12 +1,15 @@
-<!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Добро пожаловать</title>
+    <link href="{% static 'index.css' %}" rel="stylesheet" />
 </head>
 <body>
-    <h1>Добро пожаловать!</h1>
-    <p>Извините, на данной странице пока нет никакого содержимого, но вы можете поиграть в нашу игру:</p>
-    <a href="{% url 'puzzle' %}">Играть</a>
+    <div class="container">
+        <h1>Добро пожаловать!</h1>
+        <p>Извините, на данной странице пока нет никакого содержимого, но вы можете поиграть в нашу игру:</p>
+        <a href="{% url 'puzzle' %}" class="button">нажми меня</a>
+    </div>
 </body>
 </html>

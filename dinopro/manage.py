@@ -7,12 +7,13 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dinopro.settings')
-    print("[ЗАПУЩЕН] manage.py | параметры запуска: ", sys.argv)
+    print("[ЗАПУСКАЮ...] manage.py | параметры запуска: ", sys.argv)
     try:
         from django.core.management import execute_from_command_line
         if len(sys.argv) == 1:
             sys.argv.append("runserver")
             sys.argv.append("0.0.0.0:8000")
+            sys.argv.append("--noreload")
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "
